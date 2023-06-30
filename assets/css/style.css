@@ -1,0 +1,238 @@
+:root {
+    --orange: hsl(26, 100%, 55%);
+    --pale-orange: hsl(25, 100%, 94%);
+    --very-dark-blue: hsl(220, 13%, 13%);
+    --dark-grayish-blue: hsl(219, 9%, 45%);
+    --grayish-blue: hsl(220, 14%, 75%);
+    --light-grayish-blue: hsl(223, 64%, 98%);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --black-75: hsla(var(--black), .75);
+    
+}
+
+body {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid var(--light-grayish-blue);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-icon {
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav-menu-item {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    color: var(--dark-grayish-blue);
+    position: relative;
+    display: inline-block;
+}
+
+.nav-menu-item:hover {
+    cursor: pointer;
+    color: var(--very-dark-blue);
+}
+.nav-menu-item:after {
+    content: '';
+    position: absolute;
+    transform: scaleX(0);
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--orange);
+    transition: transform 0.25s ease-out;
+}
+.nav-menu-item:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.right-header-section {
+    display: flex;
+    justify-content: space-between;   
+    align-items: center;
+    gap: 20px;
+}
+
+button.cart {
+    background-color: var(--white);
+    outline: none;
+    border-width: 0px;
+}
+
+button.cart:hover {
+    cursor: pointer;
+}
+
+.user>img {
+    height: 35px;
+    width: 35px;
+}
+
+.user>img:hover {
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid var(--orange);
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 720px;
+    background-color: var(--white);
+    /* padding: 20px; */
+    -webkit-border-radius: 20px;
+    -webkit-border-bottom-right-radius: 100px;
+    -moz-border-radius: 20px;
+    -moz-border-radius-bottomright: 100px;
+    border-radius: 20px;
+    border-bottom-right-radius: 100px;
+    display: flex;
+    gap: 20px;
+}
+
+.image-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+}
+
+.main-image>img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.thumbs-image {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.thumbs-image-item>img {
+    border-radius: 10px;
+    width: 50px;
+}
+
+
+.product-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-category {
+    color: var(--orange);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.product-title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+.product-complete-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--dark-grayish-blue);
+    line-height: 1.3rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.main-price {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.discount-percent {
+    background-color: var(--pale-orange);
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.actual-price {
+    text-decoration: line-through;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--grayish-blue);
+    margin-top: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* .qty-counter {
+    display: inline-flex;
+} */
+
+.form-group {
+    display: inline-flex;
+}
+
+.form-group .form-group-prepend button {
+    border-width: 0px;
+    background-color: var(--light-grayish-blue);
+    color: var(--orange);
+}
+
+.form-group .form-group-append button {
+    border-width: 0px;
+    background-color: var(--light-grayish-blue);
+    color: var(--orange);
+}
+
+.form-group .form-input {
+    border-width: 0px;
+    background-color: var(--light-grayish-blue);
+}
+
+.add-to-cart-btn button {
+    background-color: var(--orange);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 20px;
+    border-width: 0px;
+    border-radius: 10px;
+}
+
+.add-to-cart-btn button:hover {
+    background-color: var(--pale-orange);
+}
