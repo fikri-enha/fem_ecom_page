@@ -25,60 +25,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/carousel.css" />
 </head>
 
 <body>
   <header class="navbar-container">
-    <div class="navbar">
-      <div class="nav-icon">sneakers</div>
-      <div class="nav-menu">
-        <div class="nav-menu-item">Collections</div>
-        <div class="nav-menu-item">Men</div>
-        <div class="nav-menu-item">Women</div>
-        <div class="nav-menu-item">About</div>
-        <div class="nav-menu-item">Contact</div>
+    <div class="navbar-wrapper">
+      <div class="mobile-navbar">
+        <div class="menu-btn" id="menuBtn">
+          <img src="./images/icon-menu.svg" alt="">
+        </div>
+        <div class="nav-icon-mobile">sneakers</div>
       </div>
-    </div>
-    <div class="right-header-section">
-      <div>
-        <div class="cart">
-          <img src="./images/icon-cart.svg" alt="" srcset="">
-          <span class="badge-count" id="cartCount"></span>
-          <div class="dropdown-cart">
-            <div class="dropdown-cart--header">
-              Cart
-            </div>
-            <div class="dropdown-cart--content">
-              <div class="item-cart">
-                <div class="img-cart">
-                  <img src="./images/image-product-1-thumbnail.jpg" alt="">
-                </div>
-                <div class="item-cart-desc">
-                  <div class="item-cart-title">
-                    Fall Limited Edition Sneakers
-                  </div>
-                  <div class="">
-                    <span class="">$215.00 x 3</span>
-                    <span class="" style="font-weight: 700; color: var(--black);">$375.00</span>
-                  </div>
-                </div>
-                <div>
-                  <button type="button" class="btn-delete-item">
-                    <img src="./images/icon-delete.svg" alt="">
-                  </button>
-                </div>
-              </div>
-              <div class="checkot-wrapper">
-                <button class="checkout">
-                  Checkout
-                </button>
-              </div>
-            </div>
-          </div>
+      <div class="navbar">
+        <div class="nav-icon">sneakers</div>
+        <div class="nav-menu">
+          <div class="nav-menu-item">Collections</div>
+          <div class="nav-menu-item">Men</div>
+          <div class="nav-menu-item">Women</div>
+          <div class="nav-menu-item">About</div>
+          <div class="nav-menu-item">Contact</div>
         </div>
       </div>
-      <div class="user">
-        <img src="./images/image-avatar.png" alt="" srcset="">
+      <div class="right-header-section">
+        <div class="cart-wrapper">
+          <div class="cart">
+            <img src="./images/icon-cart.svg" alt="" srcset="">
+            <span class="badge-count" id="cartCount"></span>
+          </div>
+        </div>
+        <div class="user">
+          <img src="./images/image-avatar.png" alt="" srcset="">
+        </div>
       </div>
     </div>
   </header>
@@ -86,7 +64,7 @@
   <main class="container">
     <div class="main-wrapper">
       <div class="image-preview">
-        <div class="main-image">
+        <div class="main-image-wrapper main-image">
           <img src="./images/image-product-1.jpg" alt="" srcset="">
         </div>
         <div class="thumbs-image">
@@ -102,6 +80,27 @@
           <div class="thumbs-image-item">
             <img src="./images/image-product-4-thumbnail.jpg" alt="" srcset="">
           </div>
+        </div>
+      </div>
+      <div class="carousel">
+        <div class="carousel-item carousel-item-image">
+          <img src="./images/image-product-1.jpg" class="img-1"/>
+        </div>
+        <div class="carousel-item carousel-item-image">
+          <img src="./images/image-product-2.jpg" class="img-2"/>
+        </div>
+        <div class="carousel-item carousel-item-image">
+          <img src="./images/image-product-3.jpg" class="img-3"/>
+        </div>
+        <div class="carousel-item carousel-item-image">
+          <img src="./images/image-product-4.jpg" class="img-4"/>
+        </div>
+
+        <div class="prev" id="prev">
+          <img src="./images/icon-previous.svg" alt="previous">
+        </div>
+        <div class="next" id="next">
+          <img src="./images/icon-next.svg" alt="next">
         </div>
       </div>
 
@@ -138,6 +137,7 @@
           <div class="add-to-cart-btn">
             <button id="addToCart">
               <img src="./images/icon-cart.svg" alt="" srcset="">
+
               Add to cart
             </button>
           </div>
@@ -146,12 +146,58 @@
       <!--  -->
     </div>
   </main>
+  
   <div id="imageModal" class="modal">
     <div class="modal-content">
       <div>
         modal content
       </div>
     </div>
+  </div>
+  
+  <div class="dropdown-cart">
+    <div class="dropdown-cart--header">
+      <div>
+        Cart
+      </div>
+    </div>
+    <div class="dropdown-cart--content">
+      <div class="item-cart">
+        <div class="img-cart">
+          <img src="./images/image-product-1-thumbnail.jpg" alt="">
+        </div>
+        <div class="item-cart-desc">
+          <div class="item-cart-title">
+            Fall Limited Edition Sneakers
+          </div>
+          <div class="">
+            <span class="">$215.00 x 3</span>
+            <span class="" style="font-weight: 700; color: var(--black);">$375.00</span>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="btn-delete-item">
+            <img src="./images/icon-delete.svg" alt="">
+          </button>
+        </div>
+      </div>
+      <div class="checkot-wrapper">
+        <button class="checkout">
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="side-nav" id="mobileSideNav">
+    <div class="close-btn" id="closeBtn">
+      <img src="./images/icon-close.svg" alt="close button"/>
+    </div>
+    <a href="#">Collections</a>
+    <a href="#">Men</a>
+    <a href="#">Women</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
   </div>
 
   <div class="attribution">

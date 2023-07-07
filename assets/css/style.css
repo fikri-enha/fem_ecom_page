@@ -21,8 +21,11 @@ button:hover {
 }
 
 .navbar-container {
+  width: 75%;
   display: flex;
-  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
   align-items: center;
   border-bottom: 2px solid var(--light-grayish-blue);
 }
@@ -34,9 +37,10 @@ button:hover {
   height: 100vh;
 }
 
-.navbar {
+.navbar-wrapper {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .nav-icon {
@@ -106,7 +110,7 @@ button:hover {
 .user > img:hover {
   cursor: pointer;
   border-radius: 50%;
-  border: 2px solid var(--orange);
+  box-shadow: 0 0 0 2px var(--orange);
 }
 
 .main-wrapper {
@@ -143,19 +147,19 @@ button:hover {
 }
 
 .thumbs-image-item > img {
-    border-radius: 5px;
-    width: 50px;
+  border-radius: 5px;
+  width: 50px;
 }
 
-.thumbs-image-item.active > img { 
-    opacity: .4;
-    box-shadow: 0 0 0 3px var(--orange);
+.thumbs-image-item.active > img {
+  opacity: 0.4;
+  box-shadow: 0 0 0 3px var(--orange);
 }
 
 .thumbs-image-item:hover > img {
-    cursor: pointer;
-    opacity: .4;
-    box-shadow: 0 0 0 3px var(--orange);
+  cursor: pointer;
+  opacity: 0.4;
+  box-shadow: 0 0 0 3px var(--orange);
 }
 
 .product-desc {
@@ -279,8 +283,17 @@ button:hover {
   width: 100%;
   vertical-align: middle;
 }
-.add-to-cart-btn button img {
-  color: var(--white);
+
+.add-to-cart-btn button .logo {
+  width: 24px;
+  height: auto;
+  align-items: center;
+}
+
+.add-to-cart-btn button .cart-logo {
+  background-color: var(--white);
+  mask: url('../../images/icon-cart.svg') no-repeat center / contain;
+
 }
 
 .add-to-cart-btn button:hover {
@@ -305,27 +318,35 @@ button:hover {
 
 /* dropdown cart */
 
-.cart .dropdown-cart {
+.cart-wrapper {
+  position: relative;
+}
+
+.cart-wrapper .dropdown-cart {
   background-color: var(--white);
   position: absolute;
   border-radius: 10px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   display: none;
+  /* margin-top: 10px; */
 }
 
-.cart:hover .dropdown-cart {
+.cart-wrapper:hover .dropdown-cart {
   display: block;
 }
 
 .dropdown-cart--header {
   min-width: 150px;
-  min-height: 35px;
   border-bottom: 1px solid var(--grayish-blue);
   font-size: 16px;
   font-weight: 700;
+  padding: 10px 20px;
 }
 
 .dropdown-cart--content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   min-width: 150px;
   min-height: 135px;
 }
@@ -364,6 +385,216 @@ button:hover {
 }
 
 .btn-delete-item {
+  background-color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 5px;
+  border-width: 0px;
+  border-radius: 10px;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.carousel, .prev, .next {
+  display: none;
+}
+
+.modal {
+  display: none;
+}
+
+/* ========================= */
+
+@media (max-width: 720px) {
+  body {
+    margin: 0;
+  }
+
+  .navbar-container {
+    width: 90%;
+  }
+  
+  .navbar-wrapper {
+    margin: 15px auto;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .mobile-navbar {
+    display: flex;
+    gap: 20px;
+    width: 50%;
+  }
+
+  .menu-btn {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-icon-mobile {
+    display: flex;
+    align-items: center;
+    font-size: 18pt;
+    font-weight: 700;
+  }
+
+  .container {
+    height: auto;
+  }
+
+  .main-wrapper {
+    display: block;
+  }
+
+  .image-preview {
+    display: none;
+  }
+
+  .product-desc {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .price-tag {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .action-buttons {
+    display: block;
+  }
+
+  .form-group {
+    height: 40px;
+    width: 100%;
+  }
+
+  .form-group .form-group-prepend, .form-group .form-group-append, .form-group .form-input {
+    width: calc(100%/3);
+  }
+
+  .add-to-cart-btn {
+    margin-top: 15px;
+  }
+
+  .carousel {
+    display: block;
+    width: 100%;
+    position: relative;
+    margin: auto;
+  }
+  
+  .carousel .carousel-item img {
+    vertical-align: middle;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+  }
+
+  .prev, .next {
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 25px;
+    height: 25px;
+    margin-top: -22px;
+    user-select: none;
+    padding: 10px;
+  }
+
+  .prev {
+    margin-left: 15px;
+  }
+
+  .prev img {
+    width: 13px;
+    height: 18px;
+    margin: auto;
+  }
+  
+  .next img {
+    width: 13px;
+    height: 18px;
+    margin: auto;
+  }
+
+  .next {
+    right: 0;
+    margin-right: 15px;
+  }
+
+
+  /* mobile cart */
+
+  .cart-wrapper:hover .dropdown-cart {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 90vw;
+    z-index: 1;
+  }
+
+  
+  .dropdown-cart--header {
+    min-width: 150px;
+    border-bottom: 1px solid var(--grayish-blue);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px;
+  }
+  
+  .dropdown-cart--content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 150px;
+    min-height: 135px;
+  }
+  
+  .dropdown-cart--content .item-cart {
+    display: flex;
+    padding: 10px 20px;
+    width: 200px;
+    gap: 10px;
+  }
+  
+  .img-cart img {
+    border-radius: 10px;
+    width: 30px;
+  }
+  
+  .item-cart-desc {
+    font-size: 10px;
+    color: var(--grayish-blue);
+  }
+  
+  .checkot-wrapper {
+    padding: 10px 20px;
+  }
+  
+  .checkot-wrapper .checkout {
+    background-color: var(--orange);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+    border-width: 0px;
+    border-radius: 10px;
+    width: 100%;
+    vertical-align: middle;
+  }
+  
+  .btn-delete-item {
     background-color: var(--white);
     font-size: 16px;
     font-weight: 700;
@@ -372,4 +603,47 @@ button:hover {
     border-radius: 10px;
     width: 100%;
     vertical-align: middle;
+  }
+
+  .side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 60px 0 0 0 ;
+  }
+  
+  .side-nav a {
+   padding: 10px 8px 10px 32px;
+   text-decoration: none; 
+   font-size: 20px;
+   font-weight: 700;
+   color: var(--black);
+   display: block;
+   transform: .3s;
+  }
+
+  .side-nav .close-btn {
+    position: absolute;
+    top: 0;
+    font-size: 36px;
+    margin-left: 32px;
+  }
+
+}
+
+
+@media (min-width: 720px) {
+  .navbar {
+    display: flex;
+    gap: 20px;
+  }
+  .mobile-navbar {
+    display: none;
+  }
 }
