@@ -5,6 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const cartCount = document.getElementById("cartCount");
   const addCartBtn = document.getElementById("addToCart");
+  const mainImage = document.querySelector('.main-image')
+  const itemImage = document.querySelectorAll('.thumbs-image-item')
+  
+  const arrImgItem = [
+    'image-product-1.jpg',
+    'image-product-2.jpg',
+    'image-product-3.jpg',
+    'image-product-4.jpg',
+  ]
 
   addBtn.addEventListener("click", () => {
     inputOrderCount.valueAsNumber += 1;
@@ -19,11 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
   addCartBtn.addEventListener("click", () => {
     const isBagdeHidden = cartCount.style;
     let count = Number(cartCount.innerHTML);
-    if (isBagdeHidden) {
-      cartCount.style.display = "block";
+    if ( inputOrderCount.valueAsNumber !== 0) {
+      if (isBagdeHidden) {
+        cartCount.style.display = "block";
+      }
+      count += 1;
+      cartCount.innerHTML = count;
     }
-    count += 1;
-    cartCount.innerHTML = count;
   });
 
   // ====================
@@ -76,4 +87,17 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("closeBtn").addEventListener("click", () => {
     closeNav();
   });
+
+  itemImage.forEach((el, idx) => {
+    el.addEventListener('click', () => {
+      const imgSelected = arrImgItem[idx]
+      mainImage.getElementsByTagName('img')[0].src = `${window.location.origin}/images/${imgSelected}`
+      itemImage.forEach((element, i) => {
+        element.classList.remove('active')
+      });
+      el.classList.toggle('active')
+    })
+  })
+
+  console.log(itemImage)
 });
